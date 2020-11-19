@@ -1,14 +1,34 @@
+const express = require('express')
+const path = require('path')
+const nunjucks = require('nunjucks')
 
 
-// vamos começar, carregando o express e criando a app
-import express from 'express'
-import routes from './routes.js'
+const app = express()
 
-const server = express()
+app.use(express.static(__dirname + '/public'));
 
-server.use(routes)
+nunjucks.configure(path.join('public', 'view'), {
+    express:app,
+    autoescape: true,
+    noCache:true
+})
 
-server.listen(3000)
 
 
-export default server
+app.get('/', (req, res) => {
+
+    return res.render('index.html', {name:"Andre"})
+
+})
+
+
+app.get('/ola/:nome', (req, res) => {
+    
+})
+
+
+
+
+app.listen(3000)
+
+
