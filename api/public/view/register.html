@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar-se</title>
+    <link rel="stylesheet" href="../styles/register.css">
 </head>
+
 <body>
-    <form action="/register" method="POST">
-        <legend>NICKNAME</legend>
-        <input type="text" name="nick">
+    <header>
+        <h1>NODE-CRUD</h1>
+    </header>
+    <div class="content">
+
+        <main>
+            <h1>REGISTRAR</h1>
+            <fieldset>
+
+                <form action="/register" method="POST">
+                    <div class="name field">
+                        <legend>NOME:</legend>
+                        <input type="text" name="nick" required>
+                    </div>
+                    <div class="email field">
+                        <legend>EMAIL:</legend>
+                        <input type="text" name="nick" required>
+                    </div>
+
+                    <div class="password field">
+                        <legend>SENHA:</legend>
+                        <input type="password" name="senha" required>
+                    </div>
+
+
+                    <div class="confirm-password field">
+                        <legend>REPITA A SENHA:</legend>
+                        <input type="password" name="senha" required>
+                    </div>
+
+                    <button type="submit">REGISTRAR-SE</button>
     
-        <legend>SENHA</legend>
-        <input type="password" name="senha">
-    
-        <button type="submit">REGISTRAR-SE</button>
-    
-    </form>
+                </form>
+
+            </fieldset>
+            
+        </main>
+
+
+    </div>
 
 
 
 
-    
 </body>
+
 </html>
