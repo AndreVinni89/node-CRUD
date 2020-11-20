@@ -1,3 +1,74 @@
-h1{
-    color: blue;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "impact";
+
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    display: flex;
+    background-color: black;
+    color: white;
+    height: 20vh;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+header h1{
+    font-size: 50pt;
+
+}
+
+
+main{
+    height: 80vh;
+    background-color:lightgray;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+
+
+
+}
+
+
+
+
+
+
+
+main  a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 15vw;
+    margin: 50px;
+    background-color: black;
+
+    border: none;
+    border-radius: 10px;
+    transition: background .3s;
+
+
+    color: white;
+    text-decoration: none;
+    font-size: 20pt;
+
+
+}
+
+main a:hover{
+    background-color: white;
+    color: black;
+
 }
