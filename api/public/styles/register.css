@@ -87,7 +87,7 @@ form button{
     width: 15vw;
     padding: 5px;
     align-self: center;
-    margin-top: 20px;
+    margin-top: 40px;
     background-color: black;
     border: none;
     border-radius: 10px;
@@ -97,7 +97,14 @@ form button{
 }
 
 form button:hover{
+    
     background-color: white;
     color: black;
 
+}
+
+h1 a{
+    color: white;
+    text-decoration: none;
+    
 }

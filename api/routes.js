@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
 
-    return res.render('index.html', {name:"Andre"})
+    return res.render('index.html')
 
 })
 
@@ -16,9 +16,11 @@ router.get('/register', (req, res) => {
 })
 router.post('/register', (req, res) => {
 
+
     console.log(req.body)
     return res.render('register.html')
 
 })
 
 
+module.exports = app => app.use(router)

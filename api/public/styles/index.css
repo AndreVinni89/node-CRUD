@@ -71,3 +71,10 @@ main a:hover{
     color: black;
 
 }
+
+
+h1 a{
+    color: white;
+    text-decoration: none;
+    
+}
