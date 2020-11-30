@@ -1,0 +1,87 @@
+Para realizar a conexão com o banco de dados em um servidor node é necessarios instalar as sequintes 
+dependencias
+
+- sequelize
+- sequelize cli
+- sqlite ou dependencia do banco escolhido
+
+
+então primeiramente cria-se uma pasta database com um arquivo index.js
+
+
+então tambem cria-se uma pasta config com um arquivo database.js nele com um module.exports = {}
+dentro dele coloca-se as configurações do banco que podem ser consultadas na documentação do sequelize
+
+após isso no arquivo index.js na pasta database importa-se o sequelize e o arquivo database.js da pasta config
+
+então instancia-se a conexão dessa forma:
+
+const connection = new Sequelize(dbConfig)
+
+passando a config para o construtor
+
+
+então exporta-se a conexão com um module.exports
+
+após isso na raiz do projeto cria-se um arquivo .sequelizerc nele colocamos o seguinte codigo com os caminhos para o arquivo de configuração e para a pasta de migrations que deve ser criada dentro da pasta database:
+
+
+const path = require('path')
+
+module.exports = {
+    config: path.resolve(__dirname, 'src', 'config', 'database.js'),
+    'migrations-path' : path.resolve(__dirname, 'src', 'database', 'migrations')
+
+}
+
+após isso executar no terminal o comando npm sequelize db:create para criar o banco de dados
+no caso de sqlite o banco deve ser criado manualmente
+
+
+então para criar uma migration para o banco executa-se o seguinte comando no terminal:
+
+yarn sequelize migration:create --name=$$nome-da-migration$$
+
+
+dentro da migration configura-se as alterações com o seguinte formato de retorno
+
+return queryInterface.createTable('users', { id: Sequelize.INTEGER });
+
+
+colocando-se assim todos os campos e suas configurações
+
+
+
+para executar as migrations no terminal executa-se:
+
+yarn sequelize db:migrate
+
+
+
+
+para desfazer a ultima migration executada:
+
+yarn sequelize db:migrate:undo
+
+
+após isso dentro de uma pasta model criar um arquivo .js com o nome da tabela
+
+nele importa-se o Model do sequelize
+
+
+e cria uma classe que extende a classe model
+nele cria-se um metodo statico init que recebe como parametro a connection
+
+dentro do init executa-se super.init({ campos }, {sequelize: connection}) passndo no primeiro parametro os nomes dos campos como chave do objeto e seus tipos como valor no formato DataTypes.INTEGER no qual o DataTypes tambem deve ser importado do sequelize
+
+após isso no arquivo index.js da pasta database importa-se o model para uma variavel e adiciona o comando
+User.init(connection) passando a conexão para dentro dele
+
+
+
+após isso e uma rota post importa-se o model e executa user.create({passando os campos em um objeto})
+
+agora dentro do server.js na raiz do projeto importa-se o index.js da pasta database
+
+
+

@@ -10,10 +10,7 @@ class User extends Model{
 
         },{
             sequelize: connection
-        }
-        
-        
-        
+        }   
         )
     }
 }

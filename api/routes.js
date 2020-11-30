@@ -18,16 +18,25 @@ router.get('/register', (req, res) => {
 })
 router.post('/register', async (req, res) => {
     
-    //const {name, password, email} = req.body
+    const {name, password, email} = req.body
+
     console.log(req.body)
 
-    //const user = await User.create({name, password, email})
+    const user = await User.create({name, password, email})
 
 
-    //return res.json(user)
-    return res.json(req.body)
+    return res.json(user)
 
 })
 
+
+router.get('/users', async(req, res) => {
+
+    const users = await User.findAll()
+
+
+    return res.json(users)
+
+})
 
 module.exports = app => app.use(router)
