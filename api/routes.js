@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const User = require('./src/model/User')
+
 
 
 router.get('/', (req, res) => {
@@ -14,11 +16,16 @@ router.get('/register', (req, res) => {
     return res.render('register.html')
 
 })
-router.post('/register', (req, res) => {
-
-
+router.post('/register', async (req, res) => {
+    
+    //const {name, password, email} = req.body
     console.log(req.body)
-    return res.render('register.html')
+
+    //const user = await User.create({name, password, email})
+
+
+    //return res.json(user)
+    return res.json(req.body)
 
 })
 
