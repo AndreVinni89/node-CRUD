@@ -20,7 +20,7 @@ router.post('/register', async (req, res) => {
     
     const {name, password, email} = req.body
 
-    console.log(req.body)
+    console.log(req.body.name)
 
     const user = await User.create({name, password, email})
 

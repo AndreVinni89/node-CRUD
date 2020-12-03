@@ -13,8 +13,10 @@ require('./routes')(app)
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(express.urlencoded({ extended: true }))
+//app.use(express.urlencoded({ extended: true }))
 
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 
 nunjucks.configure(path.join('public', 'view'), {
