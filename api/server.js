@@ -1,11 +1,14 @@
 const express = require('express')
 const path = require('path')
 const nunjucks = require('nunjucks')
-const bodyParser = require('body-parser')
 
+
+//importando as configurações do banco
 require('./src/database/index')
 
+//instanciando o express
 const app = express()
+
 
 app.use(express.json())
 
@@ -13,10 +16,8 @@ require('./routes')(app)
 
 app.use(express.static(__dirname + '/public'));
 
-//app.use(express.urlencoded({ extended: true }))
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+
 
 
 nunjucks.configure(path.join('public', 'view'), {

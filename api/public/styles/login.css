@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "impact";
+
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../img/background.jpg");
+}
+
+header{
+    display: flex;
+    background-color: black;
+    color: white;
+    height: 20vh;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+header h1{
+    font-size: 50pt;
+
+}
+
+
+
+main{
+
+    margin-top: 10vh;
+    padding: 5rem;
+
+    width: 60vw;
+    height: 60vh;
+
+
+    border-radius: 10px;
+    background-color: rgb(87, 87, 87);
+    color: white;
+}
+fieldset{
+    border: none;
+}
+
+
+legend{
+    font-size: 16pt;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.field{
+    display: flex;
+    margin-top: 2vh;
+    width: 60%;
+    flex-direction: column;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.field input{
+    height: 4vh;
+    border-radius: 10px;
+    border: none;
+    margin-left: 8px;
+    width: 100%;
+    margin-top: 4px;
+}
+
+
+form button{
+
+    height: 10vh;
+    width: 15vw;
+    padding: 5px;
+    align-self: center;
+    margin-top: 40px;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    transition: background .3s;
+}
+
+form button:hover{
+    
+    background-color: white;
+    color: black;
+
+}
+
+h1 a{
+    color: white;
+    text-decoration: none;
+    
+}
