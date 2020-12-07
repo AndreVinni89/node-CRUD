@@ -14,27 +14,27 @@ router.get('/', (req, res) => {
 })
 
 router.get('/register', (req, res) => {
-    
+
 
     return res.render('register.html')
 
 })
 
 router.post('/register', async (req, res) => {
-    
-    const {name, email, password} = req.body
+
+    const { name, email, password } = req.body
 
     console.log(req.body.name)
 
-    const user = await User.create({name, password, email})
+    const user = await User.create({ name, password, email })
 
 
-    return res.render('index.html')
+    return res.render('index.html', { user: user })
 
 })
 
 
-router.get('/users', async(req, res) => {
+router.get('/list-users', async (req, res) => {
 
     const users = await User.findAll()
 
@@ -45,14 +45,24 @@ router.get('/users', async(req, res) => {
 
 
 router.get('/login', (req, res) => res.render('login.html'))
-router.post('/login', (req, res) => {
-    const { email , password } = req.body
 
 
-    const user = User.findOne()
 
-    return res.render('index.html')
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body
 
+
+    const user = await User.findOne({
+        attributes: ['name', 'email'],
+        where: {
+            email: email,
+            password: password
+
+        }
+
+    })
+
+    return res.render('index.html', {user})
 
 
 })

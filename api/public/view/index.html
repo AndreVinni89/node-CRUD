@@ -10,6 +10,9 @@
 
 <body>
     <header>
+        {% if user %}
+            <div><span>USUARIO: {{user.name}}</span></div>
+        {% endif %}
 
         <h1><a href="/">NODE-CRUD</a></h1>
     </header>
@@ -17,11 +20,13 @@
     <main>
 
 
+
         <a href="/register">Registrar-se</a>
 
 
         <a href="/login">LOGAR</a>
 
+        <a href="/list-users">LISTAR USUARIOS</a>
 
 
 
